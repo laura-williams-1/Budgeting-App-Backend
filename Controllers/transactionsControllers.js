@@ -12,6 +12,8 @@ transactions.get("/", (req, res) => {
 //INDEX
 transactions.get("/:id", (req, res) => {
   const { id } = req.params;
+  console.log(id);
+  console.log(transactionsArray[id]);
   transactionsArray[id]
     ? res.status(202).json(transactionsArray[id])
     : res
@@ -29,7 +31,7 @@ transactions.post("/", (req, res) => {
 //DELETE
 transactions.delete("/:id", (req, res) => {
   const { id } = req.params;
-  const updatedTransactions = transactions.splice(id, 1);
+  const updatedTransactions = transactionsArray.splice(id, 1);
   transactionsArray[id]
     ? res.status(202).json(updatedTransactions)
     : res
