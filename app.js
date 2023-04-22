@@ -1,9 +1,10 @@
 const express = require("express");
-
 const app = express();
+const cors = require("cors");
 const transactionController = require("./Controllers/transactionsControllers");
 app.use(express.json());
 
+app.use(cors());
 app.use("/transactions", transactionController);
 
 app.get("/", (req, res) => {

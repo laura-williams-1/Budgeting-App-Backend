@@ -4,7 +4,7 @@ const transactions = express.Router();
 
 const transactionsArray = require("../models/transaction");
 
-//SHOW
+//SHOW => Index()
 transactions.get("/", (req, res) => {
   res.status(202).json(transactionsArray);
 });
@@ -13,7 +13,7 @@ transactions.get("/", (req, res) => {
 transactions.get("/:id", (req, res) => {
   const { id } = req.params;
   transactionsArray[id]
-    ? res.send(202).json(transactionsArray[id])
+    ? res.status(202).json(transactionsArray[id])
     : res
         .status(404)
         .send(`We were unable to find a transcation at index : ${id}`);
@@ -39,4 +39,4 @@ transactions.delete("/:id", (req, res) => {
         );
 });
 
-modules.exports = transactions;
+module.exports = transactions;
