@@ -21,6 +21,12 @@ transactions.get("/:id", (req, res) => {
         .send(`We were unable to find a transcation at index : ${id}`);
 });
 
+//CREATE
+transactions.post("/", (req, res) => {
+  transactionsArray.push(req.body);
+  res.json(transactionsArray[transactionsArray.length - 1]);
+});
+
 //UPDATE
 transactions.post("/", (req, res) => {
   const newTransaction = req.body;
