@@ -4,7 +4,7 @@ const transactions = express.Router();
 
 const transactionsArray = require("../models/transaction");
 
-//SHOW => Index()
+//SHOW
 transactions.get("/", (req, res) => {
   res.status(202).json(transactionsArray);
 });
